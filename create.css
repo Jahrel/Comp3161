@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    width : 80%;
+    background: url(welcome.jpg)no-repeat top center; 
+    background-size: cover;
+    height: 100vh;
+    border-color: black;
+    
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 550px;
+    border-color: black;
+    
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+input[type=text]{
+    width: 100%;
+    padding: 12px;
+    border: 3px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+.container .title h1{
+
+    color:sandybrown;
+    text-align: center;
+    margin-bottom: 25px;
+
+}
+
+.container .mealform{
+    display:flex;
+    border-color: black;
+
+}
+.right{
+
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+
+}
+
+.container .mealform .right .meal{
+    margin: 10px 0;
+    /*background: transparent; */
+    border: 0px;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    color: black;
+    width: 100%;
+
+}
+.container .mealform .left .meal{
+    margin: 10px 0;
+    /*background: transparent;*/
+    border: 0px;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    color: black;
+    width: 100%;
+
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: black;
+}
+::-moz-placeholder {
+    
+    color: black;
+}
+:-ms-input-placeholder {
+    color: black;
+}
+
+@media screen and (max-width: 600px){
+    .container .mealform{
+    flex-direction: column;
+}
+
+
+    
+.container .meal div{
+    border-color: black;
+}
+
+.btn{
+
+    height : 500px;
+    width : 500px;
+}
