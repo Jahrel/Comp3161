@@ -1,0 +1,103 @@
+body{
+    background-color: #e2bac7;
+    
+}
+
+
+.list{
+    grid-area: list;
+    text-align: center;
+    display: flex;
+
+    display: grid;
+  	grid-template-areas:
+	'head head head head head head'
+    'dsplay dsplay dsplay dsplay dsplay dsplay'
+    'result result result result result result';
+
+    text-align: center;
+    
+	background-color: #e2bac7;
+    
+
+}
+.list img{
+    grid-area: image;
+	
+    
+}
+.header {
+    grid-area: head;
+    text-align: center;
+	justify-content: center;
+	align-items: center;
+    
+    background: url(https://organisedhq.com.au/wp-content/uploads/2019/10/TOH-shopping-list-notepad-2019-e1571456492413.png)   no-repeat;
+    background-size: cover;
+    
+   
+}
+
+li{
+	padding: 5px;
+}
+
+.searchFA {
+    grid-area: dsplay;
+  
+
+}
+
+.result {
+    grid-area: result;
+    margin-left:12%;
+    text-align: left;
+
+}
+
+
+
+
+
+
+
+p{
+
+    font-weight: bold;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-transform: capitalize;
+    
+
+}
+h3{
+    font-weight: bold;
+    font-size: 25px;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-transform: capitalize;
+    
+  
+}
+h1{
+    
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+
+hr{
+
+    margin-left:10%;
+    margin-right:320px;
+    width: 100%;
+   
+}
+
