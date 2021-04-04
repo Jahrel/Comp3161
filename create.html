@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class = "container">
-        <div class ="mealform">
+        <div class ="mealform" id = "myForm">
         <form action="" method="GET" enctype="multipart/form-data">
         <div class = "title">
             <h1> Meal Form</h1>
@@ -19,11 +19,10 @@
             <input type="text" class = "meal" id="inputservings" placeholder= "Input Servings"required>   
         </div>
         <div class = "left">
-            <input type="text" class = "meal" id="image" placeholder= "Image Upload"required>   
-            
+            <input type="file" accept = "image/*" class = "meal" id="image" placeholder= "Image Upload"required>   
         </div>
         <div class="sendinfo">
-            <button  class ="btn" type="button">Submit</button>
+            <button  class ="btn" type="submit">Submit</button>
         </div>
         </div>   
         </form>     
