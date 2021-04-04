@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    width : 80%;
+    background: url(meal.jpg)no-repeat top center; 
+    background-size: cover;
+    height: 100vh;
+    border-color: black;
+    
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 550px;
+    border-color: black;
+    
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+input[type=text]{
+    width: 100%;
+    padding: 12px;
+    border: 3px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    
+
+}
+.container .title h1{
+
+    
+    color: white;
+    text-shadow: 1px 1px 2px rgb(100, 600, 255), 0 0 25px rgb(300, 300, 0), 0 0 5px rgb(66,104,1);
+    text-align: center;
+    margin-bottom: 25px;
+ font-family: Arial, Helvetica, sans-serif;
+    /* background-color:rgb(255, 21, 21);*/
+     padding:0.1em 0.2em;
+    /* border-width:0.5em;
+  border-style:solid;
+  border-color:orange;*/
+  position:centre;
+  border-top-color:transparent;
+  
+       
+}
+
+.container .mealform{
+    display:flex;
+    border-color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.right{
+
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+
+}
+
+.container .mealform .right .meal{
+    margin: 10px 0;
+    /*background: transparent; */
+    border: 0px;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    color: black;
+    width: 100%;
+
+}
+.container .mealform .left .meal{
+    margin: 10px 0;
+    /*background: transparent;*/
+    border: 0px;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    color: black;
+    width: 100%;
+
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgb(39, 38, 38);
+    text-align: center;
+}
+::-moz-placeholder {
+    
+    color: rgb(39, 38, 38);
+    text-align: center;
+}
+:-ms-input-placeholder {
+    color: rgb(39, 38, 38);
+    text-align: center;
+}
+
+@media screen and (max-width: 600px){
+    .container .mealform{
+    flex-direction: column;
+}
+
+}
+    
+.container .meal div{
+    border-color: black;
+}
+
+.btn{
+    font-size: 15px;
+    font-weight: bolder;
+    height : 30px;
+    width : 60px;
+    color:rgb(233, 250, 233) ;
+    background-color: #426801 /* #426801 #efac30*/;
+    opacity: .89;
+}
+input{
+    height: 10mm;
+    width: 120mm;
+}
