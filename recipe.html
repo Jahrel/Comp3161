@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="recipe.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -24,9 +25,18 @@
             <input type="text" class = "meal" id="recipe" placeholder= "Recipe Name" required>
             <input type="text" class = "meal" id="creationdate" placeholder= "Creation Date"required>   
             <input type="text" class = "meal" id="prepartiontime" placeholder= "Preparation Time"required>      
-            <input type="text" class = "meal" id="measurements" placeholder= "Measurements "required>   
-            <input type="text" class = "meal" id="Instructions" placeholder= "Instructions"required>   
-        
+            <input type="text" class = "meal" id="measurements" placeholder= "Measurements "required>      
+            <label> Enter No. of steps for Instructions</label>
+            <input type ="number" id="steps">
+            <button id = "stepsgenerate">Generate</button>
+
+            <hr>
+            <br>
+            <div id = "generate">  
+            </div>
+            <hr>
+            <div id = "showdata"></div>
+
         
         
         <style>
@@ -69,6 +79,32 @@
                         tokenSeparators: ['/',',',';'," "] 
                     });
                 })
+        </script>
+        <script>
+            $(document).ready(function () {
+                $("#stepsgenerate").click(function () {
+                    var steps = $("#steps").val()
+                    var i
+                    for (i=0; i<=steps;i++)
+                        {
+
+                            $("#generate").append(`<input type ="text" id="textbox`+i+`"><br>`)
+                        }
+                    $("#generate").append(`<button id="btnshow>Show</button>`)
+                    $("#btnshow").click(function () {
+                    
+                        for(i=1;i<=steps;i++)
+                        {
+                            var data =$("#textbox"+i).val()
+                            $("#showdata").append(data)                        }
+
+                    })
+
+                })
+                
+            })
+
+
         </script>
 
         </form>     
