@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "create.css">
-    <title>Add Recipe </title>
+    <title>Multilpe Select</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <link rel="stylesheet" href="recipe.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <div class = "container">
@@ -17,18 +23,57 @@
         <div class = "right">
             <input type="text" class = "meal" id="recipe" placeholder= "Recipe Name" required>
             <input type="text" class = "meal" id="creationdate" placeholder= "Creation Date"required>   
-            <input type="text" class = "meal" id="prepartiontime" placeholder= "Preparation Time"required>   
-            <input type="text" class = "meal" id="ingredients" placeholder= "Ingredients"required>   
+            <input type="text" class = "meal" id="prepartiontime" placeholder= "Preparation Time"required>      
             <input type="text" class = "meal" id="measurements" placeholder= "Measurements "required>   
             <input type="text" class = "meal" id="Instructions" placeholder= "Instructions"required>   
+        
+        
+        
+        <style>
+            .mul-select{
+                width: 100%;
+                height: 40%;
+                margin: 10px 0;
+                border: 0px;
+                border-bottom: 2px solid black;
+                padding: 10px;
+                color: black;
+            }
+        </style>
+            <br>
+        
+                
+                    <div class="form-group">
+                        <select class="mul-select" multiple="true">
+                            <option value="Egg">Egg</option>
+                            <option value="Salt">Salt</option>
+                            <option value="Pepper">Pepper</option>
+                            <option value="Onion">Onion</option>
+                            <option value="Sugar">Sugar</option>
+                            <option value="Tomato">Tomato</option>
+                            <option value="Vinegar">Vinegar</option>
+                        </select>
+                    </div> 
+               </div>
+            </div>
+            <div class="sendinfo">
+                <button  class ="btn" type="submit">Submit</button>
+            </div>
         </div>
         
-        <div class="sendinfo">
-            <button  class ="btn" type="submit">Submit</button>
-        </div>
-        </div>   
+        <script>
+            $(document).ready(function(){
+                $(".mul-select").select2({
+                        placeholder: "select Ingredietnts", //placeholder
+                        tags: true,
+                        tokenSeparators: ['/',',',';'," "] 
+                    });
+                })
+        </script>
+
         </form>     
+       
     </div>
-        
+    
 </body>
 </html>

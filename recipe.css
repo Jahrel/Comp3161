@@ -90,12 +90,15 @@ input[type=file]{
 
 .container .mealform .right .meal{
     margin: 10px 0;
-    /*background: transparent; */
     border: 0px;
     border-bottom: 2px solid black;
     padding: 10px;
     color: black;
     width: 100%;
+}
+
+.container .mealform .right .recipe{
+    float: left;
 }
 
 ::-webkit-input-placeholder {
@@ -124,16 +127,22 @@ input[type=file]{
     border-color: black;
 }
 
-.btn{
+.container .sendinfo .btn{
     font-size: 15px;
     font-weight: bolder;
-    height : 30px;
-    width : 60px;
+    height : 40px;
+    width : 100px;
     color:rgb(233, 250, 233) ;
     background-color: #426801 /* #426801 #efac30*/;
     opacity: .89;
+    margin-left: 500px;
 }
 input{
     height: 10mm;
     width: 120mm;
+}/*
+.container-fluidh-100bg-lighttext-dark{
+
+    background:transparent;
 }
+
