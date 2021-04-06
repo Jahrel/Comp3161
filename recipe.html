@@ -23,15 +23,19 @@
         </div>
         <div class = "right">
             <input type="text" class = "meal" id="recipe" name="recipename" placeholder= "Recipe Name" required>
-            <input type="text" class = "meal" id="creationdate" name="creationdate" placeholder= "Creation Date"required>   
+            <input type="date " class = "meal" id="creationdate" name="creationdate" placeholder= "Creation Date"required>   
             <input type="text" class = "meal" id="prepartiontime" name="prepartiontime" placeholder= "Preparation Time"required>      
             <input type="text" class = "meal" id="measurements" name="measurements" placeholder= "Measurements "required>      
+            <br> <hr>
             <label> Enter No. of steps for Instructions</label>
+            <div class="stepsno">
             <input type ="number" id="steps">
+        
             <button id = "stepsgenerate">Generate</button>
+             </div>
 
             <hr>
-            <br>
+            
             <div id = "generate">  
             </div>
             <hr>
