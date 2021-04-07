@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+/* {
+	box-sizing: border-box;
+}*/
+*{
+    color:black;
+}
+body {
+	background: #f5f9fa;
+	
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	
+	/*background: url(https://images.creativemarket.com/0.1.0/ps/9055887/1820/1213/m1/fpnw/wm1/zkmamliclsn8inbw4ixehns2qa9go0b26wk9c0pom5xb0ejbkh806v7vqqzttuic-.jpg?1600160104&s=1e61bfd36ebaf2fd631eb2f669a7f2bb) no-repeat  center;*/
+}
+#planner{
+    font-size: 60px;
+    font-weight: bold;
+   
+}
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: left;
+}
+h6{
+    font-size: 14px;
+    font-style: italic;
+    font-weight: lighter;
+	letter-spacing: 0.5px;
+
+	
+}
+h2{
+    font-size: 25px;
+
+    font-weight: bold;
+	letter-spacing: 0.5px;
+
+	
+}
+ ul {
+    list-style-type: none;
+
+}
+a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+.areas{
+    display: grid;
+    height: 100vh;
+  grid-template-areas:
+    'name name name name name name'
+    'meal meal meal meal meal meal'
+    
+;
+  grid-gap: 10px;
+  
+  padding: 10px;
+
+  
+}
+/*
+.top{
+    grid-area: top;
+    display: grid;
+    grid-template-areas:
+    'recipe recipe recipe meal meal meal';
+    text-align: center;
+	grid-gap: 10px;
+}
+
+.btext{
+    display: grid;
+  grid-template-areas:
+    'image image text text image'
+    
+;}
+div >#planner h6{
+    grid-area: text;
+}*/
+
+.areas > div {
+    
+    
+    font-size: 30px;
+  }
+
+.name{
+    grid-area: name;
+    padding-top: 2em;
+    text-align: center;
+    background: url(https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsb2clMjBiYWNrZ3JvdW5kfGVufDB8fDB8&w=1000&q=80) no-repeat   ;
+    
+    background-size: cover;
+}
+
+.meal{
+
+    grid-area: meal;
+    grid-template-columns: 'result result result result image image';
+    
+}
+
+.result {
+    text-align: left;
+    margin-left: 20px ;
+    font-size: 25px;
+
+    
+
+    
+}
+
+.image{
+    grid-area: image;
+    align-items: center;
+    justify-content: center;
+}
+/*
+.recipe{
+    
+    grid-area: recipe; 
+	background: #f5f9fa;
+
+}
+
+.meal{
+   
+    grid-area: meal;
+	background: #f5f9fa;
+}
+
+.list{
+    grid-area: list;
+    text-align: center;
+    
+
+    display: grid;
+  	grid-template-areas:
+      'image image comment comment comment  comment'
+	'image image shop shop kitchen kitchen';
+    
+	background-color: #e2bac7;
+
+}
+
+.list img{
+    grid-area: image;
+	
+    
+}
+.list a h1 {
+    
+    text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+li{
+	padding: 5px;
+}
+
+.list h2{
+    grid-area: comment;
+    text-align: center;
+
+}
+
+
+
+.name{
+    padding-top: 2em;
+    text-align: center;
+    grid-area: name;
+    background: url(https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsb2clMjBiYWNrZ3JvdW5kfGVufDB8fDB8&w=1000&q=80) no-repeat   ;
+    
+    background-size: cover;
+ 
+}
+
+
+.shop{
+    grid-area: shop;
+    text-align: center;
+    justify-content: center;
+  align-items: center;
+ 
+  text-align: center;
+}
+
+.kitchen{
+    grid-area: kitchen;
+    text-align: center;
+    justify-content: center;
+  align-items: center;
+ 
+  
+  
+}
+
+.list li  {
+    display: inline;
+}
+
+*/
