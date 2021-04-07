@@ -144,7 +144,7 @@ input[type=file]{
     border-color: black;
 }
 
-.container .sendinfo .btn{
+.sendinfo .btn{
     font-size: 15px;
     font-weight: bolder;
     height : 40px;
@@ -153,6 +153,10 @@ input[type=file]{
     background-color: #426801 /* #426801 #efac30*/;
     opacity: .89;
     margin-left: 500px;
+    
+}
+.sendinfo {
+    padding-top: 5px;
     
 }
 
@@ -183,16 +187,9 @@ input{
     margin-bottom: 2px;
     border-width: thin;
 }
-/*
-.form-group{
-    height: 500px;
-    width: 400px;
-    background-color: blueviolet;
-    
-}
 
-.mul-select{
-    background-color: blue;
-    height: 500px;
+
+.form-group .mul-select{
+    
     width: 400px;
-}*/
+}
