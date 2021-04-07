@@ -107,14 +107,14 @@ div >#planner h6{
 .list{
     grid-area: list;
     text-align: center;
-    display: flex;
+    
 
     display: grid;
   	grid-template-areas:
-	'image comment comment dsplay dsplay dsplay'
-    'image mes mes dsplay dsplay dsplay';
+      'image comment comment comment comment comment'
+	'image sk sk sk sk sk';
 
-    text-align: center;
+    
     
 	background-color: #e2bac7;
 
@@ -126,11 +126,10 @@ div >#planner h6{
     
 }
 .list a h1 {
-    grid-area: mes;
+    
     text-align: center;
 	justify-content: center;
 	align-items: center;
-    display: inline;
 }
 
 li{
@@ -142,13 +141,8 @@ li{
     text-align: center;
 
 }
-.dsplay{
-	grid-area: dsplay;
-	text-align: center;
-}
-.lflex{
-	display: flex;
-}
+
+
 
 .name{
     padding-top: 2em;
@@ -160,3 +154,31 @@ li{
  
 }
 
+.sk{
+    grid-area: sk;
+
+    display: grid;
+    grid-template-areas:
+  'shop shop shop kitchen kitchen kitchen'
+  'shop shop shop kitchen kitchen kitchen';
+  
+  
+}
+
+.shop{
+    grid-area: shop;
+    text-align: center;
+    justify-content: center;
+  align-items: center;
+  
+  text-align: center;
+}
+
+.kitchen{
+    grid-area: kitcken;
+    text-align: center;
+    justify-content: center;
+  align-items: center;
+  
+  text-align: center;
+}
