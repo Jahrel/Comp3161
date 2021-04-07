@@ -112,10 +112,7 @@
         
             
         }
-        
-        
-        
-        
+           
     </script>
 
     
@@ -135,54 +132,17 @@
             <input type="text" class = "meal" name="recipename" placeholder= "Recipe Name" >  
             <input type="number" class = "meal" name="preptime" placeholder= "Preparation Time(In Minutes)">      
             <input type="number" class = "meal" name="calorie" placeholder= "Amount of calories">
-            <input type="number" class = "meal" name= "number" id="number" placeholder="Enter the number of instructions to be generated">      
-            <button id = "addstep" type= 'btn' onclick="addFields()">Add Instructions</button>
-            <hr>
-            <br>
-            <div id = "generate">  
-            </div>
-            <hr>
-            <div id = "showdata"></div>
+            <input type="number" class = "meal" name= "step1" id="number1" placeholder="Step 1. Instructions">      
+            <input type="number" class = "meal" name= "step2" id="number2" placeholder="Step 2. Instructions">      
+            <input type="number" class = "meal" name= "step3" id="number3" placeholder="Step 3.. Instructions">      
+            <input type="number" class = "meal" name= "step4" id="number4" placeholder="Step 4. Instructions">      
+            <input type="number" class = "meal" name= "step5" id="number5" placeholder="Step 5. Instructions">      
+            <input type="number" class = "meal" name= "step6" id="number6" placeholder="Step 6. Instructions">      
+            <input type="number" class = "meal" name= "step7" id="number7" placeholder="Step 7. Instructions">      
+            <input type="number" class = "meal" name= "step8" id="number8" placeholder="Step 8. Instructions">      
+            <input type="number" class = "meal" name= "step9" id="number9" placeholder="Step 9. Instructions">      
+            <input type="number" class = "meal" name= "step10" id="number10" placeholder="Step 10. Instructions">      
 
-        
-        
-        <style>
-            .mul-select{
-                width: 100%;
-                height: 40%;
-                margin: 10px 0;
-                border: 0px;
-                border-bottom: 2px solid black;
-                padding: 10px;
-                color: black;
-            }
-        </style>
-            <br>
-        
-                
-
-                    <div class="form-group">
-                        <select class="mul-select" name="ingredients[]" multiple="true">
-                            <?php
-                            require_once "dbconnection.php";
-                            
-                            $stmt = $conn->prepare("SELECT * FROM ingredients");
-                            $stmt->execute();
-                            $ingredients = $stmt -> fetchAll(\PDO::FETCH_ASSOC);
-                
-                            
-                            foreach ($ingredients as $ingredient ){
-            
-                               
-                            ?>
-                            
-                            <option value="<?=$ingredient['ingredientname'];?>"><?=$ingredient['ingredientname'];?></option>
-                            
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    </div> 
                </div>
             </div>
             <div class="sendinfo">
