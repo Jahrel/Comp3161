@@ -148,3 +148,9 @@ input{
     height: 10mm;
     width: 120mm;
 }
+.type label{
+    font-weight: bold;
+}
+.type{
+    padding-bottom: 10px;
+}
