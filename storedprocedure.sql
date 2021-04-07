@@ -23,7 +23,7 @@ select ingredientname, measurement from ingredients inner join  kitchen on ingre
  END //
 DELIMITER ;*/
 
---
+--draft mealplan
 
 DELIMITER //
  CREATE PROCEDURE mealplan( in mealT char(25) )
@@ -31,6 +31,17 @@ DELIMITER //
  
 insert into mealplan (recipe_id, mealtype) values (select recipe_id from recipe in (select * from recipe ORDER BY RAND()
 LIMIT 5),mealT);
+
+
+ END //
+DELIMITER ;
+
+--track calorie count
+DELIMITER //
+ CREATE PROCEDURE calories( )
+ BEGIN
+ 
+select calorie_count, meal_id from meal; 
 
 
  END //
