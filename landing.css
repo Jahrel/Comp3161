@@ -111,15 +111,13 @@ div >#planner h6{
 
     display: grid;
   	grid-template-areas:
-      'image comment comment comment comment comment'
-	'image sk sk sk sk sk';
-
-    
+      'image image comment comment comment  comment'
+	'image image shop shop kitchen kitchen';
     
 	background-color: #e2bac7;
 
-
 }
+
 .list img{
     grid-area: image;
 	
@@ -154,31 +152,22 @@ li{
  
 }
 
-.sk{
-    grid-area: sk;
-
-    display: grid;
-    grid-template-areas:
-  'shop shop shop kitchen kitchen kitchen'
-  'shop shop shop kitchen kitchen kitchen';
-  
-  
-}
 
 .shop{
     grid-area: shop;
     text-align: center;
     justify-content: center;
   align-items: center;
-  
+ 
   text-align: center;
 }
 
 .kitchen{
-    grid-area: kitcken;
+    grid-area: kitchen;
     text-align: center;
     justify-content: center;
   align-items: center;
+ 
   
-  text-align: center;
+  
 }
