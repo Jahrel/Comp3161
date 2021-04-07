@@ -26,9 +26,11 @@ DELIMITER ;*/
 --
 
 DELIMITER //
- CREATE PROCEDURE kitchen()
+ CREATE PROCEDURE mealplan( in mealT char(25) )
  BEGIN
  
+insert into mealplan (recipe_id, mealtype) values (select recipe_id from recipe in (select * from recipe ORDER BY RAND()
+LIMIT 5),mealT);
 
 
  END //
