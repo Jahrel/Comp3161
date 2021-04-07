@@ -12,7 +12,7 @@
         $calories = trim($_POST["calorie"]);
         $creationdate = date("Y-m-d");
         $ingredients = $_POST['ingredients'];
-        $instructions = $_POST['instruction'];
+        //$instructions = $_POST['instruction'];
 
         
         //Generate a random id
@@ -77,6 +77,19 @@
             $stmt->bindValue(':instruction', $instruction);
             $stmt->execute();
         }
+        for ($i = 1; $i<=10;$i++){
+            $instruction = $_POST["step".i];
+            if ($instruction==""){
+                break;
+            }else{
+                $query ='INSERT INTO recipe_instruction VALUES (:recipeid, :instruction)';
+                $stmt = $conn->prepare($query);
+                $stmt->bindValue(':recipeid',$recipeid);
+                $stmt->bindValue(':instruction', $instruction);
+                $stmt->execute();
+            }
+        }
+        echo '<script>alert("Recipe successfully added")</script>';
 
     }
 
@@ -112,7 +125,10 @@
         
             
         }
-           
+        
+        
+        
+        
     </script>
 
     
@@ -141,8 +157,47 @@
             <input type="number" class = "meal" name= "step7" id="number7" placeholder="Step 7. Instructions">      
             <input type="number" class = "meal" name= "step8" id="number8" placeholder="Step 8. Instructions">      
             <input type="number" class = "meal" name= "step9" id="number9" placeholder="Step 9. Instructions">      
-            <input type="number" class = "meal" name= "step10" id="number10" placeholder="Step 10. Instructions">      
+            <input type="number" class = "meal" name= "step10" id="number10" placeholder="Step 10. Instructions">  
 
+        
+        
+        <style>
+            .mul-select{
+                width: 100%;
+                height: 40%;
+                margin: 10px 0;
+                border: 0px;
+                border-bottom: 2px solid black;
+                padding: 10px;
+                color: black;
+            }
+        </style>
+            <br>
+        
+                
+
+                    <div class="form-group">
+                        <select class="mul-select" name="ingredients[]" multiple="true">
+                            <?php
+                            require_once "dbconnection.php";
+                            
+                            $stmt = $conn->prepare("SELECT * FROM ingredients");
+                            $stmt->execute();
+                            $ingredients = $stmt -> fetchAll(\PDO::FETCH_ASSOC);
+                
+                            
+                            foreach ($ingredients as $ingredient ){
+            
+                               
+                            ?>
+                            
+                            <option value="<?=$ingredient['ingredientname'];?>"><?=$ingredient['ingredientname'];?></option>
+                            
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div> 
                </div>
             </div>
             <div class="sendinfo">
