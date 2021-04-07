@@ -171,3 +171,8 @@ li{
   
   
 }
+
+.list li  {
+    display: inline;
+}
+
