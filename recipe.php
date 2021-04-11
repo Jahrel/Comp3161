@@ -70,19 +70,14 @@
             $stmt->execute();
         }
         //Create a new instruction page for this
-        foreach ($instructions as $instruction){
-            $query ='INSERT INTO recipe_instruction VALUES (:recipeid, :instruction)';
-            $stmt = $conn->prepare($query);
-            $stmt->bindValue(':recipeid',$recipeid);
-            $stmt->bindValue(':instruction', $instruction);
-            $stmt->execute();
-        }
+        
+        
         for ($i = 1; $i<=10;$i++){
-            $instruction = $_POST["step".i];
+            $instruction = $_POST["step".$i];
             if ($instruction==""){
                 break;
             }else{
-                $query ='INSERT INTO recipe_instruction VALUES (:recipeid, :instruction)';
+                $query ='INSERT INTO recipe_instructions VALUES (:recipeid, :instruction)';
                 $stmt = $conn->prepare($query);
                 $stmt->bindValue(':recipeid',$recipeid);
                 $stmt->bindValue(':instruction', $instruction);
@@ -91,6 +86,9 @@
         }
         echo '<script>alert("Recipe successfully added")</script>';
 
+    }
+    if(isset($_POST["back"])){
+        header('Location: landing.html');
     }
 
 ?>
@@ -148,16 +146,13 @@
             <input type="text" class = "meal" name="recipename" placeholder= "Recipe Name" >  
             <input type="number" class = "meal" name="preptime" placeholder= "Preparation Time(In Minutes)">      
             <input type="number" class = "meal" name="calorie" placeholder= "Amount of calories">
-            <input type="number" class = "meal" name= "step1" id="number1" placeholder="Step 1. Instructions">      
-            <input type="number" class = "meal" name= "step2" id="number2" placeholder="Step 2. Instructions">      
-            <input type="number" class = "meal" name= "step3" id="number3" placeholder="Step 3.. Instructions">      
-            <input type="number" class = "meal" name= "step4" id="number4" placeholder="Step 4. Instructions">      
-            <input type="number" class = "meal" name= "step5" id="number5" placeholder="Step 5. Instructions">      
-            <input type="number" class = "meal" name= "step6" id="number6" placeholder="Step 6. Instructions">      
-            <input type="number" class = "meal" name= "step7" id="number7" placeholder="Step 7. Instructions">      
-            <input type="number" class = "meal" name= "step8" id="number8" placeholder="Step 8. Instructions">      
-            <input type="number" class = "meal" name= "step9" id="number9" placeholder="Step 9. Instructions">      
-            <input type="number" class = "meal" name= "step10" id="number10" placeholder="Step 10. Instructions">  
+            <input type="text" class = "meal" name= "step1" id="number1" placeholder="Step 1. Instructions">      
+            <input type="text" class = "meal" name= "step2" id="number2" placeholder="Step 2. Instructions">      
+            <input type="text" class = "meal" name= "step3" id="number3" placeholder="Step 3.. Instructions">      
+            <input type="text" class = "meal" name= "step4" id="number4" placeholder="Step 4. Instructions">      
+            <input type="text" class = "meal" name= "step5" id="number5" placeholder="Step 5. Instructions">      
+             
+ 
 
         
         
@@ -175,7 +170,7 @@
             <br>
         
                 
-
+            
                     <div class="form-group">
                         <select class="mul-select" name="ingredients[]" multiple="true">
                             <?php
@@ -202,6 +197,9 @@
             </div>
             <div class="sendinfo">
                 <button  class ="btn" name="addrecipe" type="submit">Submit</button>
+                <form method="post">
+        <button class="btn"  name="back" method="post" type="submit">Back</button>    
+            </form>
             </div>
     </div>
         </form>     

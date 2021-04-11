@@ -6,9 +6,6 @@
     box-sizing: border-box;
     outline: none;
     font-family: 'Roboto', sans-serif;
-
-    justify-content: center;
-    align-items: center;
 }
 
 body{
@@ -17,9 +14,6 @@ body{
     background-size: cover;
     height: 100vh;
     border-color: black;
-
-    justify-content: center;
-    align-items: center;
     
 }
 
@@ -35,13 +29,9 @@ body{
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
-
-    justify-content: center;
-    align-items: center;
 }
-
 input[type=text]{
-   /* width: 100%;*/
+    width: 100%;
     padding: 12px;
     border: 3px solid black;
     border-radius: 4px;
@@ -50,11 +40,10 @@ input[type=text]{
     
 
 }
-
 input[type=file]{
 
   
-    /*width: 100%;*/
+    width: 100%;
     padding: 12px;
     border: 3px solid black;
     border-radius: 4px;
@@ -82,10 +71,6 @@ input[type=file]{
   
        
 }
-#steps{
-  width: 80px;  
-  margin-right: 5%;
-}
 
 .container .mealform{
     display:flex;
@@ -109,14 +94,12 @@ input[type=file]{
     border-bottom: 2px solid black;
     padding: 10px;
     color: black;
-    width: 70%;
-    align-items: center;
-    justify-content:center ;
+    width: 100%;
 }
 
-/*.container .mealform .right .recipe{
-    float: center;
-}*/
+.container .mealform .right .recipe{
+    float: left;
+}
 
 ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
@@ -144,7 +127,7 @@ input[type=file]{
     border-color: black;
 }
 
-.sendinfo .btn{
+.container .sendinfo .btn{
     font-size: 15px;
     font-weight: bolder;
     height : 40px;
@@ -153,43 +136,13 @@ input[type=file]{
     background-color: #426801 /* #426801 #efac30*/;
     opacity: .89;
     margin-left: 500px;
-    
 }
-.sendinfo {
-    padding-top: 5px;
-    
-}
-
-label{
-    font-weight: bold;
-}
-
-.stepsno{
-   display: flex;
-    
-}
-
 input{
-    height: 30px;
-    width: 70%;
-
-    justify-content: center;
-    align-items: center;
+    height: 10mm;
+    width: 120mm;
 }/*
 .container-fluidh-100bg-lighttext-dark{
 
     background:transparent;
-}*/
-
-#generate input {
-    height: 30px;
-    width: 400px;
-    margin-bottom: 2px;
-    border-width: thin;
 }
 
-
-.form-group .mul-select{
-    
-    width: 400px;
-}

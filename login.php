@@ -15,7 +15,7 @@ if(isset($_REQUEST["signupbtn"])){
     $id.= generate_string($permitted_chars,10);
 
     //Is id in database?
-    $query = 'SELECT COUNT(userid) AS amount FROM user WHERE userid = :userid';
+    $query = 'SELECT COUNT(userid) AS amount FROM user_login WHERE userid = :userid';
     $stmt = $conn->prepare($query);
     $stmt->bindValue(':userid', $id);
     $stmt->execute();
@@ -31,16 +31,23 @@ if(isset($_REQUEST["signupbtn"])){
     }
 
     //INSERT new user in the database
-    $query ='INSERT INTO user VALUES (:userid, :userpassword, :userfname, :userlname)';
+    $query ='INSERT INTO user_acc VALUES (:userid, :userfname, :userlname)';
     $stmt = $conn->prepare($query);
     $stmt->bindValue(':userid',$id);
-    $stmt->bindValue(':userpassword', $password);
     $stmt->bindValue(':userfname', $firstname);
     $stmt->bindValue(':userlname', $lastname);
 
     $result = $stmt->execute();
     
+    
     if($result){
+        $query ='INSERT INTO user_login VALUES (:userid, :userpassword)';
+        $stmt = $conn->prepare($query);
+        $stmt->bindValue(':userid',$id);
+        $stmt->bindValue(':userpassword', $password);
+        
+
+        $result = $stmt->execute();
         echo '<script>alert("Registration has been successful")</script>';
     }
 
@@ -48,13 +55,13 @@ if(isset($_REQUEST["signupbtn"])){
 }
 
 //Checks for signin
-if(isset($_REQUEST["signinbtn"])){
+if(isset($_POST["signinbtn"])){
     session_start();
-    $firstname = trim($_REQUEST["firstname"]);
-    $lastname = trim($_REQUEST["lastname"]);
-    $password = trim($_REQUEST["password"]);
+    $firstname = trim($_POST["firstname"]);
+    $lastname = trim($_POST["lastname"]);
+    $password = trim($_POST["password"]);
 
-    $query = "SELECT userid,userpassword,userfname, userlname FROM user WHERE userpassword = :userpassword AND userfname =:userfname AND userlname=:userlname";
+    $query = "SELECT logi.userid,userfname,userlname,password FROM user_login as logi join user_acc as ac on logi.userid=ac.userid WHERE password = :userpassword AND userfname = :userfname AND userlname = :userlname" ;
     $stmt = $conn->prepare($query);
     $stmt->bindValue(':userpassword', $password);
     $stmt->bindValue(':userfname', $firstname);
@@ -65,8 +72,8 @@ if(isset($_REQUEST["signinbtn"])){
     if ($user === false){
         echo '<script>alert("There was a problem verifying the user. Please Try Again")</script>';
     } else{
-        $_SESSION['user_id'] = $user['userid'];
-        echo '<script>alert("Loginwas succesful")</script>';
+        $_SESSION['userid'] = $user['userid'];
+        echo '<script>alert("Login was succesful")</script>';
         echo '<script>window.location("landing.html")</script>';
         header('Location: landing.html');
     }
@@ -93,7 +100,7 @@ if(isset($_REQUEST["signinbtn"])){
 
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="#" method = "post">
                 <h1>Log in</h1>
                 <input type="text" name="firstname" placeholder="First Name" />
                 <input type="text" name="lastname" placeholder="Last Name" />

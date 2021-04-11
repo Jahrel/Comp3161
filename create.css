@@ -144,18 +144,7 @@ input[type=file]{
     background-color: #426801 /* #426801 #efac30*/;
     opacity: .89;
 }
-
 input{
     height: 10mm;
     width: 120mm;
-}
-.type label{
-    font-weight: bold;
-}
-.type{
-    margin: 10px 0;
-    border: 0px;
-    padding: 10px;
-    color: black;
-    width: 100%;
 }

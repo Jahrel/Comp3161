@@ -1,11 +1,12 @@
+  
 <!DOCTYPE html>
 <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <title>Meal Planner Online</title>
       <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
-      <link href="searchmeal.css" rel="stylesheet" type="text/css">
-      
+      <link href="generatecalorie.css" rel="stylesheet" type="text/css">
+      <script src="app.js"></script>
 
   </head>
   <body>
@@ -13,34 +14,32 @@
           <div class = "container">
               <div class = "header">
                     <p> Meal Planner Online </p> 
-                    <h3>Meal Search</h3>   
+                    <h3>Calorie Generation</h3>   
               </div>
           </div>
   </header>
   <marquee behavior="scroll" direction="left"></marquee>
     <div class = "SearchFA">
-      <h1>Search by Meal Name</h1>
+      <h1> Generate by Calorie Amount</h1>
    
     </div>
   </marquee>
       <div class="searchbar">
 
         <form action="">
-        <input type="text" id = "text_field" name="name" class="searchTerm" placeholder="e.g Baked chicken">
-        <button type="Search" id = "srchbutton" name = "searchmeal" class="searchButton" style = "color:white">Search</button>
+        <input type="number" id = "text_field" name="name" class="searchTerm" placeholder="e.g 200">
+        <button type="Search" id = "srchbutton" class="searchButton" style = "color:white">Generate</button>
         </form>
     </div>
     <div class = "Results">
         <h2>RESULT</h2>
         <hr>
-
-    </div>
-
-    <div id = "result">
-      <table>
+        
+        
+        <table>
         <tr>
-        <td>Recipename</td>
-        <td>Creation Date</td>
+        <td>Meal Name</td>
+        <td>Calorie</td>
         </tr>
 
         <?php
@@ -49,24 +48,42 @@
             require_once "dbconnection.php";
             require_once "generatestring.php";
     
-            $mealname = trim($_REQUEST["name"]);
-            //Join all meal tables . user should only see his table
-            $query="SELECT mealname,caloriecount FROM mealplan WHERE mealname LIKE :mealname";
+            $recipename = trim($_REQUEST["name"]);
+            //Join all recipe tables . user should only see his table
+            $query="SELECT recipeid,recipename FROM recipe WHERE recipename LIKE :recipename";
             $stmt = $conn->prepare($query);
-            $stmt->bindValue(':mealname', '%'.$mealname.'%' );
+            $stmt->bindValue(':recipename', '%'.$recipename.'%' );
             $stmt->execute();
             $recipes = $stmt -> fetchAll();
-            foreach($meals as $meal){
+            foreach($recipes as $recipe){
             echo "<tr>".
-            "<td>" . $meal["mealname"] . "</td>" .
-            "<td>" . $meal["caloriecount"]. "</td>" .
+            "<td>" . $recipe["recipeid"] . "</td>" .
+            "<td>" . $recipe["recipename"]. "</td>" .
             "</tr>";
         }
     }
         ?>
         </table>
+
+    </div>
+
+    <div id = "result">
+      
     </div>
 
  
 
     </body> 
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

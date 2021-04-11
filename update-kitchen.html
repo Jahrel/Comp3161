@@ -1,27 +1,5 @@
-<?php
-if(isset($_POST["update"])){
-    session_start();
-    require_once "dbconnection.php";
-    require_once "generatestring.php";
 
-    $userid=$_SESSION['userid'];
-    $ingredientname = trim($_POST["ingredient"]);
-    $quantity = $_POST['quantity'] + 0;
-    $unit = trim($_POST['unit']);
 
-    $query ='INSERT INTO kitchen VALUES (:userid, :ingredientname,:quantity, :unit)';
-    $stmt = $conn->prepare($query);
-    $stmt->bindValue(':userid',$userid);
-    $stmt->bindValue(':ingredientname',$ingredientname);
-    $stmt->bindValue(':quantity',$quantity);
-    $stmt->bindValue(':unit',$unit);
-    $stmt->execute();
-
-}
-if(isset($_POST["back"])){
-    header('Location: landing.html');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +12,7 @@ if(isset($_POST["back"])){
 <body>
     <div class = "container">
         <div class ="mealform" id = "myForm">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="GET" enctype="multipart/form-data">
         <div class = "title">
             <h1>Add Ingredients</h1>
         </div>
@@ -59,7 +37,7 @@ if(isset($_POST["back"])){
                 }
                 ?>
             </select>
-            <input type="number" class = "meal" id="meal" name="quantity" placeholder = "How much is left">
+            <input tpe="number" class = "meal" id="meal" name="quantity" placeholder = "How much is left">
             <select  name="unit">
                 <?php
                 require_once "dbconnection.php";
@@ -96,10 +74,7 @@ if(isset($_POST["back"])){
             <
         </div>
         <div class="sendinfo">
-            <button  class ="btn" name="update" type="submit">Submit</button>
-            <form method="post">
-        <button class="btn"  name="back" method="post" type="submit">Back</button>    
-            </form>
+            <button  class ="btn" type="submit">Submit</button>
         </div>
         </div>   
         </form>     

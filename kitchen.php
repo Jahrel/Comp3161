@@ -1,3 +1,8 @@
+<?php
+if(isset($_REQUEST["back"])){
+  header('Location: landing.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,14 +35,15 @@
         <tr>
         <td>Ingredient</td>
         <td>Quantity</td>
+        <td>Unit</td>
         </tr>
 
         <?php
         
             session_start();
             require_once "dbconnection.php";
-            $userid = $_SESSION[userid];
-            $query="SELECT ingredientname,quantity FROM kitchen WHERE userid = :userid";
+            $userid = $_SESSION['userid'];
+            $query="SELECT ingredientname,quantity, unit FROM kitchen WHERE userid = :userid";
             $stmt = $conn->prepare($query);
             $stmt->bindValue(':userid', $userid);
             $stmt->execute();
@@ -46,12 +52,16 @@
             echo "<tr>".
             "<td>" . $ingredient["ingredientname"] . "</td>" .
             "<td>" . $ingredient["quantity"]. "</td>" .
+            "<td>" . $ingredient["unit"]. "</td>" .
             "</tr>";
         }
     
         ?>
         </table>
     </div>
+    <form method="post">
+        <button class="btn"  name="back" method="post" type="submit">Back</button>    
+            </form>
 </div>
 
 

@@ -25,9 +25,12 @@
   </marquee>
       <div class="searchbar">
 
-        <form action="">
+        <form action="" method="post">
         <input type="text" id = "text_field" name="name" class="searchTerm" placeholder="e.g Baked chicken">
         <button type="Search" id = "srchbutton" name = "searchmeal" class="searchButton" style = "color:white">Search</button>
+        <form method="post">
+        <button class="btn"  name="back" method="post" type="submit">Back</button>    
+            </form>
         </form>
     </div>
     <div class = "Results">
@@ -39,30 +42,37 @@
     <div id = "result">
       <table>
         <tr>
-        <td>Recipename</td>
-        <td>Creation Date</td>
+        <td>Mealname</td>
+        <td>Meal Type</td>
+        <td>Serving</td>
+        <td>Image</td>
         </tr>
 
         <?php
-        if(isset($_REQUEST["srchbutton"])){
-            session_start;
+        if(isset($_POST["searchmeal"])){
+            session_start();
             require_once "dbconnection.php";
             require_once "generatestring.php";
     
-            $mealname = trim($_REQUEST["name"]);
+            $mealname = trim($_POST["name"]);
             //Join all meal tables . user should only see his table
-            $query="SELECT mealname,caloriecount FROM mealplan WHERE mealname LIKE :mealname";
+            $query="SELECT mealname,mealtype,serving,image FROM meal WHERE mealname LIKE :mealname";
             $stmt = $conn->prepare($query);
             $stmt->bindValue(':mealname', '%'.$mealname.'%' );
             $stmt->execute();
-            $recipes = $stmt -> fetchAll();
+            $meals = $stmt -> fetchAll();
             foreach($meals as $meal){
             echo "<tr>".
             "<td>" . $meal["mealname"] . "</td>" .
-            "<td>" . $meal["caloriecount"]. "</td>" .
+            "<td>" . $meal["mealtype"]. "</td>" .
+            "<td>" . $meal["serving"]. "</td>" .
+            "<td>"."<img src=".$meal['image'].">"."</td>".
             "</tr>";
         }
     }
+    if(isset($_POST["back"])){
+      header('Location: landing.html');
+  }
         ?>
         </table>
     </div>

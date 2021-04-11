@@ -15,7 +15,7 @@
             <h1> Meal Form</h1>
         </div>
         <div class = "right">
-            <input type="text" class = "meal" id="meal" placeholder= "Meal Name" required>
+            <input type="text" class = "meal" name="meal" placeholder= "Meal Name" required>
             <style>
                 .type{
                     margin: 10px 0;
@@ -33,15 +33,14 @@
                     <option value="Dinner">Dinner</option>
                 
             </div>
-            
         
-            <input type="text" class = "meal" id="inputservings" placeholder= "Input Servings"required>   
+            <input type="text" class = "meal" name="inputservings" placeholder= "Input Servings"required>   
         </div>
         <div class = "left">
-            <input type="file" accept = "image/*" class = "meal" id="image" placeholder= "Image Upload"required>   
+            <input type="file" accept = "image/*" class = "meal" name="image" placeholder= "Image Upload"required>   
         </div>
         <div class="sendinfo">
-            <button  class ="btn" type="submit">Submit</button>
+            <button  class ="btn" name = "createmeal" type="submit">Submit</button>
         </div>
         </div>   
         </form>     
